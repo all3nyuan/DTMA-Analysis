@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>师生资源使用倾向</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/vendor/linearicons/style.css">
+	<link rel="stylesheet" href="../assets/vendor/chartist/css/chartist-custom.css">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="../assets/css/demo.css">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon.png">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top" style="height: 75px;">
+			<div class="brand">
+				<a href="index.html"><img src="../assets/img/logo-dark.png" alt="Klorofil Logo" class="img-responsive logo"></a>
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-indent-decrease"></i></button>
+				</div>
+				<form class="navbar-form navbar-left">
+				</form>
+				<div class="navbar-btn navbar-btn-right">
+					
+				</div>
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-cog"></i> <span>设置</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">基本设置</a></li>
+								<li><a href="#">数据显示</a></li>
+								<li><a href="#">安全设置</a></li>
+								<li><a href="#">关于</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="../assets/img/user.png" class="img-circle" alt="Avatar"> <span>用户</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="lnr lnr-user"></i> <span>我的资料</span></a></li>
+								<li><a href="#"><i class="lnr lnr-bubble"></i> <span>我的信息</span></a></li>
+								<li><a href="../page-login.html"><i class="lnr lnr-exit"></i> <span>退出</span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll">
+				<nav>
+					<ul class="nav">						
+						<li><a href="index.html" class=""><i class="lnr lnr-chart-bars"></i> <span>学校资源使用情况</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-users"></i> <span>师生资源使用情况</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-teacher.html" class="">教师</a></li>
+									<li><a href="page-student.html" class="">学生</a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="using-tendency.html" class="active"><i class="lnr lnr-map"></i> <span>师生资源使用倾向</span></a></li>
+					</ul>
+				</nav>			
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+		<div class="main">
+				<!-- MAIN CONTENT -->
+			<div class="main-content">
+				<div class="container-fluid">
+					<h4 class="page-title">师生资源使用倾向</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">教师教材使用比例</h3>
+								</div>
+								<div class="panel-body" style="height: 300px">
+									<div id="teacher-chart" class="ct-chart" style="height: 240px"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">学生资源使用比例</h3>
+								</div>
+								<div class="panel-body" style="height: 300px">
+									<div id="student-chart" class="ct-chart" style="height: 240px"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END MAIN CONTENT -->
+		</div>
+		<!-- END MAIN -->
+		<div class="clearfix"></div>
+		<footer>
+			<div class="container-fluid">
+				<p class="copyright">Copyright &copy; 2018.E-Dragon Software Technology Co.,Ltd.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- END WRAPPER -->
+	<!-- Javascript -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="../assets/vendor/chartist/js/chartist.min.js"></script>
+	<script src="../assets/scripts/klorofil-common.js"></script>
+	<script>
+	// teacher	
+		var data = {
+		labels: ['语文读本', '语文练习', '数学练习', '数学读本'],
+		series: [25, 15, 30, 30]
+		};
+
+		var options = {
+		labelInterpolationFnc: function(value) {
+			return value[0]
+		}
+		};
+
+		var responsiveOptions = [
+		['screen and (min-width: 640px)', {
+			chartPadding: 20,
+			labelOffset: 1,
+			labelDirection: 'explode',
+			labelInterpolationFnc: function(value) {
+			return value;
+			}
+		}],
+		['screen and (min-width: 400px)', {
+			labelOffset: 65,
+			chartPadding: 15
+		}]
+		];
+		new Chartist.Pie('#teacher-chart', data, options, responsiveOptions);
+
+	// student	
+		var data = {
+		labels: ['语文读本', '语文练习', '数学练习', '数学读本'],
+		series: [10, 30, 40, 20]
+		};
+
+		var options = {
+		labelInterpolationFnc: function(value) {
+			return value[0]
+		}
+		};
+
+		var responsiveOptions = [
+		['screen and (min-width: 640px)', {
+			chartPadding: 30,
+			labelOffset: 80,
+			labelDirection: 'explode',
+			labelInterpolationFnc: function(value) {
+			return value;
+			}
+		}],
+		['screen and (min-width: 1024px)', {
+			labelOffset: 65,
+			chartPadding: 15
+		}]
+		];
+		new Chartist.Pie('#student-chart', data, options, responsiveOptions);
+	</script>
+</body>
+
+</html>
