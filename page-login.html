@@ -7,18 +7,20 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
+
 	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<!--Input-Check-->
+	<link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet">
 </head>
 
 <body style="background-image: url(assets/img/edu-bg.jpg);background-repeat: no-repeat;background-size:100% 100%;-moz-background-size:100% 100%;">
@@ -33,33 +35,16 @@
 								<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
 								<p class="lead" style="font-size: 13px">登录数字教材应用分析系统</p>
 							</div>
-							<form class="form-auth-small" action="index.html">
-								<div class="form-group"  style="display:flex;flex-direction: row;justify-content: space-around">
-									<i class="fa fa-user" style="margin-right: 10px;margin-top: 8px;"></i>
-
-									<input type="account" class="form-control" id="signin-account" value="" placeholder="用户账号">
+							<form class="form-auth-small" action="index.html" id="login-form">
+								<div class="form-group" style="text-align: left;">									
+									<!-- <span class="input-group-addon"><sapn class="fa fa-user" style="margin-right: 10px;margin-top: 8px;"></sapn></span> -->
+									<input type="account" name="account" class="form-control" id="signin-account" value="" placeholder="输入用户账号">
 								</div>
-								<div class="form-group"  style="display:flex;flex-direction: row;justify-content: space-around">
-									<i class="fa fa-lock" style="margin-right: 10px;margin-top: 8px;"></i>
-                                    
-									<input type="password" class="form-control" id="signin-password" value="" placeholder="输入密码">
+								<div class="form-group" style="text-align: left;">
+										<!-- <label style="float: left"><i class="fa fa-lock" style="margin-right: 10px;margin-top: 8px;"></i></label> -->						
+									<input type="password" name="password" class="form-control" id="signin-password" value="" placeholder="输入密码">
 								</div>
-								<!-- <div class="form-group" style="display:flex;flex-direction: row;justify-content: space-between">
-									<i class="fa fa-users" ></i>
-									<label class="fancy-radio">
-										<input name="gender" type="radio">
-										<span><i></i>教育管理者</span>
-									</label>
-									<label class="fancy-radio">
-										<input name="gender" type="radio">
-										<span><i></i>教师</span>
-									</label>
-									<label class="fancy-radio">
-										<input name="gender" type="radio">
-										<span><i></i>学生</span>
-									</label>
-								</div> -->
-								<button type="submit" class="btn btn-primary btn-lg btn-block"style="letter-spacing: 14px;text-align:center">登录</button>
+								<button id="btn-login" type="submit" class="btn btn-primary btn-lg btn-block"style="letter-spacing: 14px;text-align:center">登录</button>
 								<div class="bottom">
 									<label class="fancy-checkbox element-left">
 										<input type="checkbox">
@@ -86,8 +71,53 @@
 		</div>
 	</div>
 	<!-- END WRAPPER -->
-
-	
+	<script src="assets/vendor/jquery/jquery.min.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/vendor/toastr/toastr.min.js"></script>
+	<script src="assets/scripts/klorofil-common.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+	<script>		
+		$(function () {
+        $('#login-form').bootstrapValidator({
+　　　　　　message: 'This value is not valid',
+            feedbackIcons: {
+                　　　　　　　　valid: 'glyphicon glyphicon-ok',
+                　　　　　　　　invalid: 'glyphicon glyphicon-remove',
+                　　　　　　　　validating: 'glyphicon glyphicon-refresh'
+            　　　　　　　　   },
+            fields: {
+                account: {
+                    message: '用户名错误',
+                    validators: {
+                        notEmpty: {
+                            message: '账号不能为空'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        }
+                    }
+                }
+            },
+			submitHandler: function (validator, form, submitButton) {
+				fields: {
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: ''
+                        }
+                    }
+                }
+              }
+			}
+        });
+    });  
+	</script>
 </body>
 
 </html>
